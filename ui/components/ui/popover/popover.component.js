@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useI18nContext } from '../../../hooks/useI18nContext';
+import { getEnvironmentType } from '../../../../app/scripts/lib/util';
+import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../shared/constants/app';
 import Box from '../box';
 import {
   AlignItems,
@@ -49,6 +51,9 @@ const defaultFooterProps = {
   padding: [4, 6, 6],
 };
 
+const environmentType = getEnvironmentType();
+const isFullScreen = environmentType === ENVIRONMENT_TYPE_FULLSCREEN;
+
 /**
  * @deprecated The `<Popover>` component has been deprecated in favor of the new `<Modal>` component from the component-library.
  * Please update your code to use the new `<Modal>` component instead, which can be found at ui/components/component-library/modal/modal.tsx.
@@ -78,6 +83,7 @@ const Popover = ({
   headerProps = defaultHeaderProps,
   contentProps = defaultContentProps,
   footerProps = defaultFooterProps,
+  customWidth,
 }) => {
   const t = useI18nContext();
   const showHeader = title || onBack || subtitle || onClose;
@@ -137,6 +143,7 @@ const Popover = ({
       <section
         className={classnames('popover-wrap', className)}
         ref={popoverRef}
+        style={{ width: isFullScreen ? customWidth : null }}
       >
         {showArrow ? <div className="popover-arrow" /> : null}
         {showHeader && <Header />}
@@ -259,6 +266,10 @@ Popover.propTypes = {
    * Box props for the footer
    */
   footerProps: PropTypes.shape({ ...Box.propTypes }),
+  /**
+   * Box props for custom width
+   */
+  customWidth: PropTypes.string,
 };
 
 /**
