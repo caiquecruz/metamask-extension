@@ -67,6 +67,7 @@ const QRHardwarePopover = () => {
     <Popover
       title={title}
       onClose={showWalletImporter ? walletImporterCancel : signRequestCancel}
+      customWidth="800px"
     >
       {showWalletImporter && (
         <QRHardwareWalletImporter

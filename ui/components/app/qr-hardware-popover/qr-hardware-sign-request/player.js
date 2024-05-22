@@ -59,7 +59,11 @@ const Player = ({ type, cbor, cancelQRHardwareSignRequest, toRead }) => {
             backgroundColor: 'var(--qr-code-white-background)',
           }}
         >
-          <QRCode value={currentQRCode.toUpperCase()} size={qrSize} />
+          <QRCode
+            value={currentQRCode.toUpperCase()}
+            size={qrSize}
+            level={level}
+          />
         </div>
       </Box>
       <Box paddingBottom={4} paddingLeft={4} paddingRight={4}>
