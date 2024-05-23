@@ -39,6 +39,7 @@ export enum HardwareAffiliateLinks {
   dcent = 'https://dcentwallet.com/',
   imtoken = 'https://token.im/',
   ngrave = 'https://shop.ngrave.io/',
+  onekey = 'https://onekey.so/products/onekey-pro-hardware-wallet/',
 }
 
 export enum HardwareAffiliateTutorialLinks {
@@ -51,6 +52,7 @@ export enum HardwareAffiliateTutorialLinks {
   dcent = 'https://medium.com/dcentwallet/dcent-wallet-now-supports-qr-based-protocol-to-link-with-metamask-57555f02603f',
   imtoken = 'https://support.token.im/hc/en-us/articles/24652624775961/',
   ngrave = 'https://ngrave.io/zero',
+  onekey = 'https://help.onekey.so/hc/articles/9426592069903',
 }
 
 /**
